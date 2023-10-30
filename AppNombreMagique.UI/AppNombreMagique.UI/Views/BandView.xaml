@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppNombreMagique.UI.Views.BandView">
+  <ContentView.Content>
+        <StackLayout Spacing="0" Padding="0">
+            <BoxView Rotation="-10" BackgroundColor="{StaticResource shadowColor}" Margin="-10,0,-20,-35" HeightRequest="120"></BoxView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

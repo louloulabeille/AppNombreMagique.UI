@@ -21,30 +21,37 @@ namespace AppNombreMagique.UI.Views
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
+            winLayout.Scale = 0.7;
+            winLayout.ScaleTo(1, 1500, Easing.BounceIn);
+
             NbMagique = nbMagique;
             NombreMagiqueLabel.Text += $" {NbMagique}";
 
-            AffichageTime(_nbSeconde);
+            _ = AffichageTime(_nbSeconde);
         }
 
         /// <summary>
         /// Affiche la page et au bout de x seconde va afficher la page d'accueil
         /// </summary>
         /// <param name="nbSeconde">temps en secondd'affiche de la page avant changement</param>
-        private void AffichageTime (int nbSeconde)
+        private async Task AffichageTime (int nbSeconde)
         {
-            Device.StartTimer(new TimeSpan(0, 0, nbSeconde), () =>
+            
+            await Task.Delay(nbSeconde*1000);
+            await this.Navigation.PushAsync(new WelcomePage());
+
+            /*Device.StartTimer(new TimeSpan(0, 0, nbSeconde), () =>
             {
-                Device.BeginInvokeOnMainThread(() =>
+                Device.BeginInvokeOnMainThread(async () =>
                 {
                     //App.Current.MainPage = new WelcomePage();
                     //this.Navigation.PopAsync();
-                    this.Navigation.PushAsync(new WelcomePage());
+                    await this.Navigation.PushAsync(new WelcomePage());
                 }
                 );
 
                 return false;
-            });
+            });*/
         }
     }
 }

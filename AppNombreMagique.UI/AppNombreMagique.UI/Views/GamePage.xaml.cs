@@ -14,8 +14,10 @@ namespace AppNombreMagique.UI.Views
     {
         private const int const_maxint = 10;
         private const int const_minint = 1;
+        private const int const_maxNbEssai = 3;
 
         private int _numSearsh = new Random().Next(const_minint, const_maxint);
+        private int _nbEssai = 0;
 
         public GamePage()
         {
@@ -23,7 +25,9 @@ namespace AppNombreMagique.UI.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
             MessageLabel.Text = $"Entre {const_minint} et {const_maxint}.";
+
             entry_Number.Completed += Entry_Number_OnChange; // évènement
+            entry_Number.Focus();
         }
 
         /// <summary>
@@ -55,13 +59,14 @@ namespace AppNombreMagique.UI.Views
         {
             int result;
 
+            _nbEssai++;
             if (int.TryParse(entry_Number.Text, out result) && (result >= const_minint && result <= const_maxint))
             {
-
                 if (_numSearsh == result)
                 {
                     //DisplayAlert("Win", "Bravo vous avez trouvé le nombre.", "Ok");
                     await this.Navigation.PushAsync(new WinPage(_numSearsh));
+                    return;
                     //App.Current.MainPage = new WinPage(_numSearsh);
                 }
                 else if (_numSearsh < result)
@@ -76,12 +81,22 @@ namespace AppNombreMagique.UI.Views
                     entry_Number.Focus();
                     entry_Number.Text = string.Empty;
                 }
-            }else
+
+                if (_nbEssai >= const_maxNbEssai)
+                {
+                    await DisplayAlert("Lose", $"Vous avez perdu, vous avez droit à {const_maxNbEssai} essais", "Ok");
+                    //await Task.Delay(2000);
+                    await this.Navigation.PopAsync();
+                }
+            }
+            else
             {
                 entry_Number.Placeholder = "?";
                 entry_Number.Text = string.Empty;
-                await DisplayAlert("Erreur", $"le nombre recherché est compris entre {const_minint} et {const_maxint}","Ok");
+                await DisplayAlert("Erreur", $"le nombre recherché est compris entre {const_minint} et {const_maxint}", "Ok");
             }
+
+            
         }
 
     }

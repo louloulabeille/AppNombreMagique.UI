@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppNombreMagique.UI.Views.WinPage">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C19428">
+        <StackLayout x:Name="winLayout" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C19428">
             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Image Source="win.png" WidthRequest="220"></Image>
-                <Label FontSize="50" Text="Bravo !" HorizontalTextAlignment="Center" Margin="0,10,0,0"></Label>
-                <Label x:Name="NombreMagiqueLabel" Text="le nombre magique était" HorizontalTextAlignment="Center"></Label>
+                <Label FontSize="50" Text="Bravo !" HorizontalTextAlignment="Center" Margin="0,10,0,0" TextColor="{StaticResource titleColor}"></Label>
+                <Label FontSize="15" x:Name="NombreMagiqueLabel" Text="le nombre magique était" HorizontalTextAlignment="Center" TextColor="{StaticResource titleColor}"></Label>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
