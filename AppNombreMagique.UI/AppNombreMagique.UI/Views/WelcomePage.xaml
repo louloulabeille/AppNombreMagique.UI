@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppNombreMagique.UI.Views.WelcomePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#C19428">
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Label Text="Le Nombre" FontSize="40" HorizontalTextAlignment="Center" TextColor="{StaticResource titleColor}"></Label>
+                <Label Text="Magique" FontSize="40" HorizontalTextAlignment="Center" TextColor="{StaticResource titleColor}"></Label>
+                <Button Text="JOUER" Clicked="Game_Button_Clicked" Margin="0,40,0,0" BackgroundColor="{StaticResource shadowColor}" 
+                    TextColor="{StaticResource titleColor}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

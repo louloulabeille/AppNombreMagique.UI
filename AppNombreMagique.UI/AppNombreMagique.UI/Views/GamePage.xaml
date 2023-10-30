@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppNombreMagique.UI.Views.GamePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C19428">
+            <StackLayout Orientation="Vertical"  HorizontalOptions="Center" VerticalOptions="Start" Margin="0,120,0,0">
+                <Label TextColor="{StaticResource titleColor}" Text="Devinez le nombre magique" FontSize="35" HorizontalTextAlignment="Center"></Label>
+                <Label TextColor="{StaticResource titleColor}" x:Name="MessageLabel" Text="" HorizontalTextAlignment="Center" FontAttributes="Italic"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Entry x:Name="entry_Number" FontSize="100" WidthRequest="250" TextColor="White" PlaceholderColor="white" Placeholder="?" 
+                       BackgroundColor="{StaticResource shadowColor}" HorizontalTextAlignment="Center" MaxLength="2" Margin="80,30,80,0" 
+                       Keyboard="Numeric" ></Entry>
+                <Button Text="Devinez" WidthRequest="250" HorizontalOptions="Center" Clicked="Devinez_Button_Clicked" 
+                        BackgroundColor="{StaticResource shadowColor}" TextColor="{StaticResource titleColor}"></Button>
+
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
