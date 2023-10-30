@@ -16,6 +16,33 @@ namespace AppNombreMagique.UI.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+
+            _ = RotateStarInfinite(star1,5000);
+            _ = RotateStarInfinite(star2,7000);
+            _ = RotateStarInfinite(star3,9000);
+
+            _ = ScaleInfinite(Game_Button, 1500);
+        }
+
+        /// <summary>
+        /// Méthode qui fait tourner les étoiles champ image 
+        /// </summary>
+        private async Task RotateStarInfinite (View view, uint time)
+        {
+            while (true)
+            {
+                await view.RotateTo(360, time);
+                view.Rotation = 0;
+            }
+        }
+
+        private async Task ScaleInfinite(View view, uint time)
+        {
+            while (true)
+            {
+                await view.ScaleTo(1.2, time);
+                await view.ScaleTo(1.0,time);
+            }
         }
 
         private void Game_Button_Clicked(object sender, EventArgs e)
